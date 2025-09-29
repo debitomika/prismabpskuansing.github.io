@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRISMA - BPS Kuansing</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>PRISMA (Pengelolaan Risiko Manajemen – BPS Kuansing)</h1>
+        <p>Website Manajemen Risiko BPS Kabupaten Kuantan Singingi</p>
+    </header>
+    <nav>
+        <button id="show-risk-list-btn" class="nav-btn active">Daftar Risiko</button>
+        <button id="show-add-risk-btn" class="nav-btn">Tambah Risiko</button>
+        <div class="dropdown">
+            <button class="nav-btn">Tautan Penting</button>
+            <div class="dropdown-content">
+                <a href="https://drive.google.com/drive/folders/1omyddSlz8juM1TsCDf9k34ldkrL1jfm5" target="_blank">Folder Manajemen Risiko</a>
+                <a href="https://docs.google.com/spreadsheets/d/1Sv18-X6OzYliEqLlEVSiVdAdUem-WoC2/edit?gid=1171958462#gid=1171958462" target="_blank">Rangkuman Identifikasi Risiko</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div id="risk-list-container">
+            <h2>Daftar Risiko Teridentifikasi</h2>
+            <div class="table-wrapper">
+                <table id="risk-table">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">No</th>
+                            <th colspan="5">1. Identifikasi Risiko</th>
+                            <th colspan="4">2. Analisis Risiko</th>
+                            <th colspan="2">3. Evaluasi Risiko</th>
+                            <th rowspan="2">Aksi</th>
+                        </tr>
+                        <tr>
+                            <th>Uraian Proses</th>
+                            <th>Pernyataan Risiko</th>
+                            <th>Penyebab & Dampak Risiko</th>
+                            <th>Kategori Risiko</th>
+                            <th>Sumber Risiko</th>
+                            <th>Probabilitas (P)</th>
+                            <th>Dampak (D)</th>
+                            <th>Skor Risiko (SR)</th>
+                            <th>Pengendalian yang Ada</th>
+                            <th>Respon Risiko</th>
+                            <th>Prioritas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="risk-table-body">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="add-risk-container" class="hidden">
+            <h2>Formulir Tambah Risiko Baru</h2>
+            <form id="add-risk-form">
+                <div class="form-section">
+                    <h3>1. Identifikasi Risiko</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="uraian-proses">Uraian Proses</label>
+                            <input type="text" id="uraian-proses" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="pernyataan-risiko">Pernyataan Risiko</label>
+                            <input type="text" id="pernyataan-risiko" required>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="penyebab-dampak">Penyebab / Dampak Risiko</label>
+                            <textarea id="penyebab-dampak" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="kategori-risiko">Kategori Risiko</label>
+                            <select id="kategori-risiko" required>
+                                <option value="Risiko Operasional">Risiko Operasional</option>
+                                <option value="Risiko Keuangan">Risiko Keuangan</option>
+                                <option value="Risiko Kepatuhan">Risiko Kepatuhan</option>
+                                <option value="Risiko Reputasi">Risiko Reputasi</option>
+                            </select>
+                        </div>
+                         <div class="form-group">
+                            <label for="sumber-risiko">Sumber Risiko</label>
+                            <select id="sumber-risiko" required>
+                                <option value="Internal">Internal</option>
+                                <option value="Eksternal">Eksternal</option>
+                                <option value="Internal dan Eksternal">Internal dan Eksternal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>2. Analisis Risiko</h3>
+                     <div class="form-grid">
+                        <div class="form-group">
+                            <label for="probabilitas">Probabilitas (1-5)</label>
+                            <input type="number" id="probabilitas" min="1" max="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dampak">Dampak (1-5)</label>
+                            <input type="number" id="dampak" min="1" max="5" required>
+                        </div>
+                         <div class="form-group full-width">
+                            <label for="pengendalian">Pengendalian yang Telah Dilaksanakan</label>
+                            <textarea id="pengendalian" rows="3" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>3. Evaluasi Risiko</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="respon-risiko">Respon Risiko</label>
+                            <select id="respon-risiko" required>
+                                <option value="Menerima Risiko">Menerima Risiko</option>
+                                <option value="Mengurangi Risiko">Mengurangi Risiko</option>
+                                <option value="Menghindari Risiko">Menghindari Risiko</option>
+                                <option value="Membagi Risiko">Membagi Risiko</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prioritas">Prioritas</label>
+                            <input type="number" id="prioritas" min="1" required>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Simpan Risiko</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - BPS Kabupaten Kuantan Singingi</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
